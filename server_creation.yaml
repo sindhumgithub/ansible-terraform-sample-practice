@@ -1,0 +1,17 @@
+# This yaml file is used to create a server 
+- name: Nginx server creation
+  hosts: local
+  connection: local
+  become: yes
+  tasks:
+  - name: Install Nginx
+    dnf:
+      name: nginx
+      state: present
+
+  - name: Start Nginx
+    ansible.builtin.service:
+      name: nginx
+      state: restarted
+
+
